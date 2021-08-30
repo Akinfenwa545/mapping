@@ -2,26 +2,29 @@ pragma solidity ^0.8.6;
 
 contract MyContract {
     // Mappings
-    mapping(uint => string) public names;
-    mapping(uint => Book) public books;
-    mapping(address => mapping(uint => Book)) public myBooks;
+    mapping(address => uint) balances;
+    mapping(address => mapping(address => bool)) approved;
+    mapping(address => uint[]) public ABC;
 
-    struct Book {
-        string title;
-        string author;
-    }
+    function foo() external{
+      balances[msg.sender] = 100;
+      balances[msg.sender];
+      balances[msg.sender] = 200;
+      delete balances[msg.sender];
 
-    constructor() public {
-        names[1] = "Adam";
-        names[2] = "Bruce";
-        names[3] = "Carl";
-    }
+      balances[SomeAddressThatDoNotExist] = 0;
 
-    function addBook(uint _id, string memory _title, string memory _author) public {
-        books[_id] = Book(_title, _author);
-    }
-    
-    function addMyBook(uint _id, string memory _title, string memory _author) public {
-        myBooks[msg.sender][_id] = Book(_title, _author);
+      approved[msg.sender][spender] = true;
+      approved[msg.sender][spender];
+      approved[msg.sender][spender] = false;
+      delete approved[msg.sender][spender];
+
+      ABC[msg.sender] = new uint[](2);
+      ABC[msg.sender].push(1);
+      ABC[msg.sender].push(2);
+      ABC[msg.sender][0];
+      ABC[msg.sender][0] = 10;
+      delete ABC[msg.sender][O];
+
     }
 }
