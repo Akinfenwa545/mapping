@@ -1,0 +1,19 @@
+pragma solidity ^0.8.6;
+
+contract myContract {
+    mapping (address => uint256[]) public ABC;
+    
+    function foo() external {
+        ABC.push[1] = 100;
+        ABC.push[2] = 200;
+        ABC.push[3] = 300;
+        ABC.push[4] = 400;
+    }
+    
+    function removeInOrder(uint index) external {
+        for (unit i = index; i < ABC.lenght -1, i++) {
+            ABC[1] = ABC[i + 1]
+        }
+        ABC.pop();
+    }
+}
